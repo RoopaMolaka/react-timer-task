@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import "./App.css"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App=()=>{
+ const [Value,valChange] =useState(0);
+ return(
+  <><div id="main-style"><h1 id="heading">Counter</h1>
+  
+  <div id="div-style"><button className="style" onClick={()=>{valChange(Value+1)}}>+ </button> 
+  <span id="num-style">{Value}</span>
+  <button className="style" onClick={()=>{valChange(Value+1)}}> - </button></div>
+  </div></>
+  
+ )
+  
+ 
+
+ }
 
 export default App;
