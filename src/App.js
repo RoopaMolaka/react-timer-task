@@ -8,7 +8,7 @@ const App=()=>{
   
   <div id="div-style"><button className="style" onClick={()=>{valChange(Value+1)}}>+ </button> 
   <span id="num-style">{Value}</span>
-  <button className="style" onClick={()=>{valChange(Value+1)}}> - </button></div>
+  <button className="style" onClick={()=>{valChange(Value-1)}}> - </button></div>
   </div></>
   
  )
