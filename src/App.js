@@ -1,20 +1,37 @@
 import React,{useState} from "react";
-import "./App.css"
+import axios from "axios";
+import { useEffect } from "react";
 
 const App=()=>{
- const [Value,valChange] =useState(0);
- return(
-  <><div id="main-style"><h1 id="heading">Counter</h1>
-  
-  <div id="div-style"><button className="style" onClick={()=>{valChange(Value+1)}}>+ </button> 
-  <span id="num-style">{Value}</span>
-  <button className="style" onClick={()=>{valChange(Value-1)}}> - </button></div>
-  </div></>
-  
- )
-  
- 
+    const [data,setData] =useState([]);
 
- }
+
+    useEffect(()=>{
+        axios.get ("https://jsonplaceholder.typicode.com/users")
+        .then((res)=>{
+            setData(res.data)
+        
+        })
+        },[])
+    
+
+    return(
+        <>
+        <ol>
+        {data.map((user,i)=>{
+            return<li key={i}>{user.name}</li>
+        })}
+        </ol>
+        </>
+    )}
+            
+
+      
+   
+
+
+
+
+ 
 
 export default App;
