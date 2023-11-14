@@ -1,4 +1,5 @@
- import React from "react";
+import React from "react";
+import"./App.css"
  import { useState,useEffect } from "react";
  const App =()=>{
     const [count,setCount]=useState(0)
@@ -11,7 +12,8 @@
             
     }else{
         clearInterval(counter)
-    } return()=>clearInterval(counter)
+    }
+     return()=>clearInterval(counter)
   },[state])
   const startButton=()=>{
     setState(true)
