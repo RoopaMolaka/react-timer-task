@@ -1,11 +1,10 @@
 import React from "react";
 import"./App.css"
- import { useState,useEffect } from "react";
+ import { useState,useEffect,useRef } from "react";
  const App =()=>{
     const [count,setCount]=useState(0)
     const [state,setState]=useState(false)
-    var buttonElement= document.getElementById("btn")
-    
+    const buttonElement = useRef(null);
  useEffect(()=>{
     let counter=""
     if(state){
@@ -18,20 +17,20 @@ import"./App.css"
   
   const startButton=()=>{
    
-   buttonElement.disabled=true
+    buttonElement.current.disabled=true
 
 
     setState(true)
   }
   const stopButton=()=>{
-    buttonElement.disabled=false
+    buttonElement.current.disabled=false
     setState(false)
   }
 
     return(
         <>
         <p>Count:{count}</p>
-        <button id="btn"  onClick={()=>{startButton()}}>Start</button>
+        <button id="btn" ref={buttonElement} onClick={()=>{startButton()}}>Start</button>
         <button  onClick={()=>{stopButton()}}>Stop</button>
         </>
     )
